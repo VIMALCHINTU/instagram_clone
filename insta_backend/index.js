@@ -5,16 +5,25 @@ const { userRouter } = require("./Routers/routers");
 require("dotenv").config()
 const cors=require("cors")
 app.use(express.json()) 
-app.use(cors()) 
+app.use(cors({
+    origin: "https://your-frontend-url.onrender.com",
+    credentials: true
+}));
 
 const MONGODB=process.env.MONGODB_URI
+const PORT = process.env.PORT || 4000;
 
 app.use("/",userRouter)
 app.use("/post",userRouter)
 app.use("/comment",userRouter)
 
-app.listen(4000,()=>{
-    console.log("index is hited")
-})
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+
+
 
 mongoose.connect(MONGODB).then(()=>console.log("connted to db")).catch(()=>console.log("failed to conect to db"))
