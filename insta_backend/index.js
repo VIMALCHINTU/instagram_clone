@@ -11,7 +11,7 @@ app.use(cors({
 }));
 
 const MONGODB=process.env.MONGODB_URI
-const PORT = process.env.PORT || 4000;
+const PORT =  4000;
 
 app.use("/",userRouter)
 app.use("/post",userRouter)
