@@ -6,8 +6,11 @@ require("dotenv").config()
 const cors=require("cors")
 app.use(express.json()) 
 app.use(cors({
-    origin: "https://your-frontend-url.onrender.com",
-    credentials: true
+  origin: [
+    "http://localhost:5173",
+    "https://instagram-clone-git-main-vimal7.vercel.app"
+  ],
+  credentials: true
 }));
 
 const MONGODB=process.env.MONGODB_URI
