@@ -19,17 +19,22 @@ import Creatpostmodal from "../components/creatpostmodal"
 import Modal from "react-modal";
 import {api} from "../../client/api";
 import { RightNav } from "./Rightnav";
-
+import { Navigate, NavLink } from "react-router-dom";
+import Reels from "./reels";
 Modal.setAppElement("#root");
-
+import Search from "./search";
 
 
 const Homepage = () => {
+
     const {user,logout}=useContext(Auth)
     const BASE_URL = "http://127.0.0.1:4000";
     const [posts,userposts]=useState([])
     const [open,setopen]=useState(false)
-
+    
+    if (!user) {
+        return <Navigate to="/" />;
+    }
     useEffect(()=>{
 
         async function postsload() {
@@ -54,23 +59,21 @@ const Homepage = () => {
     
     return (
         <div className="text-white flex  gap-[200px] ">
-            
-        
                 <div className="w-[260px] h-screen border-r border-gray-700 sticky top-0 flex-shrink-0">
 
                 <div className="ml-4  flex flex-col gap-8">
 
                     <div className="text-3xl  mt-10" style={{fontFamily:"cursive"}}>instgram</div>
                     <div className="flex gap-3 items-center"><span className="text-2xl" ><GoHomeFill /></span>Home</div>
-                    <div className="flex gap-3 items-center"><span className="text-2xl"><IoSearch /></span>Search</div>
+                    <NavLink to="/search" className="flex gap-3 items-center"><span className="text-2xl"><IoSearch /></span>Search</NavLink>
                     <div className="flex gap-3 items-center"><span className="text-2xl"><MdExplore/></span>Explor</div>
-                    <div className="flex gap-3 items-center"><span className="text-2xl"><LuSquarePlay/></span>Reels</div>
-                    <div className="flex gap-3 items-center"><span className="text-2xl"><RiTelegram2Line/></span>Messages</div>
+                    <NavLink to="/reels" className="flex gap-3 items-center"><span className="text-2xl "><LuSquarePlay /></span>Reels</NavLink>
+                    <NavLink to="/message"  className="flex gap-3 items-center" > <span className="text-2xl"><RiTelegram2Line/></span>Messages</NavLink>
                     <div className="flex gap-3 items-center"><span className="text-2xl"><FaRegHeart/></span>Notification</div>
                     <div className="w-[90px]"  onClick={()=>setopen(true)}>
                         <div className="flex gap-3 cursor-pointer  items-center"><span className="text-2xl"  ><FaPlus/></span >Create</div>
                     </div>
-                    <div className="flex gap-3 items-center"><span className="text-2xl"><TbAlignBoxBottomRight/></span>Dashbord</div>
+                    <NavLink to="/dashbord" className="flex gap-3 items-center"><span className="text-2xl"><TbAlignBoxBottomRight/></span>Dashbord</NavLink>
                     <div className="flex gap-3 items-center"><span className="text-2xl"><CgProfile/></span>Profile</div>
                     <div className="flex gap-3 items-center"><span className="text-2xl"><AiOutlineMenu/></span>More</div>
                     <button onClick={logout} className="flex gap-3 items-center"><span className="text-2xl"><FaMeta/></span  >Logout</button>

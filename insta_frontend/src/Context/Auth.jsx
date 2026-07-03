@@ -3,6 +3,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 
 import { useState } from "react";
+import Reels from "../components/reels";
+import Search from "../components/search";
 const Auth=createContext()
 const BASE_URL = "http://127.0.0.1:4000";
 const ls_key="user"
@@ -69,6 +71,7 @@ const Authprovider= ({children})=>{
     return (
         <Auth.Provider value={{login,signin,logout,user}}>
             {children}
+       
         </Auth.Provider>
     )
 }

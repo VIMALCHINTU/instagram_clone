@@ -8,8 +8,10 @@ import Signin from './components/Signin.jsx'
 import Homepage from './components/homepage.jsx'
 import { Authprovider } from './Context/Auth.jsx'
 import Modal from "react-modal"
-
-
+import Reels from './components/reels.jsx'
+import Search from './components/search.jsx'
+import Message from './components/message.jsx'
+import Dashbord from './components/dashbord.jsx'
 Modal.setAppElement("#root");
 
 
@@ -22,8 +24,11 @@ createRoot(document.getElementById('root')).render(
       <Route element={<App/>}>
          <Route path='/' element={<Home/>}/>
          <Route path="/signin" element={<Signin/>} />
+         <Route path="/reels" element={<Reels />}/>
+         <Route path="/search"  element={<Search/>}/>
          <Route path="/homepage" element={<Homepage/>}/>
-         
+         <Route path='/dashbord' element={<Dashbord/>}  /> 
+        <Route path="/message" element={<Message/>}/>
       </Route>
     </Routes>
     </Authprovider>
