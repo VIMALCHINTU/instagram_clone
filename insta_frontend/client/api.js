@@ -7,7 +7,7 @@ function getToken(){
 }
 
 export  const api=axios.create({
-    baseURL:"http://127.0.0.1:4000",
+    baseURL:"https://instagram-clone-7qrw.onrender.com",
     timeout:1000
 
 })
