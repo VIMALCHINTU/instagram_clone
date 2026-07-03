@@ -9,7 +9,7 @@ import { useState,useEffect } from 'react';
 import Creatcommentmodal from '../components/createcommentmodel';
 
 const Postlowerpart = ({likescount=[],post,postid,comment=[]}) => {
-    const BASE_URL = "http://127.0.0.1:4000";
+    const BASE_URL = "https://instagram-clone-7qrw.onrender.com";
     const {user}=useContext(Auth)
     const [open,setopen]=useState(false)
     

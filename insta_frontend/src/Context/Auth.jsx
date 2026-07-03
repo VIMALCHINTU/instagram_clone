@@ -6,7 +6,7 @@ import { useState } from "react";
 import Reels from "../components/reels";
 import Search from "../components/search";
 const Auth=createContext()
-const BASE_URL = "http://127.0.0.1:4000";
+const BASE_URL = "https://instagram-clone-7qrw.onrender.com";
 const ls_key="user"
 
 const Authprovider= ({children})=>{

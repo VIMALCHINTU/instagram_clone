@@ -4,7 +4,7 @@ import Postupperpart from "../comman/Postupperpart";
 import { Auth } from "../Context/Auth";
 import Commentmodel from "../comman/commentmodel";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL || "http://127.0.0.1:4000";
+const BASE_URL = import.meta.env.VITE_BASE_URL || "https://instagram-clone-7qrw.onrender.com";
 
 const customstyles = {
   overlay: {

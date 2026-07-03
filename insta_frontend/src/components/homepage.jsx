@@ -28,7 +28,7 @@ import Search from "./search";
 const Homepage = () => {
 
     const {user,logout}=useContext(Auth)
-    const BASE_URL = "http://127.0.0.1:4000";
+    const BASE_URL = "https://instagram-clone-7qrw.onrender.com";
     const [posts,userposts]=useState([])
     const [open,setopen]=useState(false)
     
