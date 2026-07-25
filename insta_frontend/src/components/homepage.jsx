@@ -32,30 +32,34 @@ const Homepage = () => {
     const [posts,userposts]=useState([])
     const [open,setopen]=useState(false)
     
+    
     if (!user) {
         return <Navigate to="/" />;
     }
     useEffect(()=>{
-
-        async function postsload() {
-            
-             const res = await fetch(`${BASE_URL}/post/getallposts`, {
+    async function postsload() {
+        try {
+            const res = await fetch(`${BASE_URL}/post/getallposts`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${user.token}`
                 },
-               
             });
-            const data =await res.json()
-             userposts(data)
-
+            const data = await res.json();
             
+            if (Array.isArray(data.posts)) {
+                userposts(data.posts);
+            } else {
+                console.error("Unexpected response shape:", data);
+                userposts([]);
+            }
+        } catch (err) {
+            console.error("Failed to load posts:", err);
         }
-        postsload()
-
-    },[open,posts])
-   
+    }
+    postsload()
+},[open]) 
     
     return (
         <div className="text-white flex  gap-[200px] ">

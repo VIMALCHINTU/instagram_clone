@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const Search = () => {
     const [users, setusers] = useState([]);
     const [db, setdb] = useState([]);
-    const timer=useRef()
+    let timer=useRef(null)
 
     useEffect(() => {
         apicall();

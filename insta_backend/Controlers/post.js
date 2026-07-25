@@ -15,10 +15,13 @@ const Createpost=async (req,res)=>{
     return res.send(populatepost)
 }
 
-const Getallposts=async (req,res)=>{
-        const posts=await Post.find().sort({createdAt:-1}).populate("author","user email username")
-        return res.send(posts)
-
+const Getallposts = async (req,res) => {
+    try {
+        const posts = await Post.find().sort({createdAt:-1}).populate("author","username email name")
+        return res.status(200).json({ posts })
+    } catch(err) {
+        return res.status(400).json({ message: err.message })
+    }
 }
 
 const Togglelikes=async (req,res)=>{

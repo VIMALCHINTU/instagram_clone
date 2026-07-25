@@ -25,7 +25,7 @@ const Verify=async (req,res,next)=>{
         console.log(userobj)
         next()
     }catch(err){
-        res.send(400).json(err.message)
+        res.status(400).json(err.message)
     }
 }
 module.exports={Verify}
