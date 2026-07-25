@@ -5,12 +5,14 @@ const { userRouter } = require("./Routers/routers");
 require("dotenv").config()
 const cors=require("cors")
 app.use(express.json()) 
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://instagram-clone-git-main-vimal7.vercel.app"
-  ],
-  credentials: true
+    origin: [
+        "http://localhost:5173",
+        "https://instagram-clone-three-dun.vercel.app"
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
 const MONGODB=process.env.MONGODB_URI
